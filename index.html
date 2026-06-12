@@ -525,7 +525,7 @@
       </div>
       <div class="cs-body">
         <label>Графік роботи</label>
-        <p>Пн – Пт: 10:00 – 18:00</p>
+        <p>Пн – Пт: 09:00 – 18:00</p>
         <small>Сб: за домовленістю</small>
       </div>
     </div>
@@ -807,5 +807,25 @@
     }
   });
 </script>
+
+<!--
+══════════════════════════════════════════════════════════
+  ПІДКЛЮЧЕННЯ SUPABASE
+══════════════════════════════════════════════════════════
+1. supabase.com → новий проект
+2. Table Editor → New Table "consultations":
+     id               | int8        | PK, auto-increment
+     name             | text        | NOT NULL
+     phone            | text        | NOT NULL
+     consultation_date| date        | NOT NULL
+     consultation_type| text        | NOT NULL
+     created_at       | timestamptz | default: now()
+3. Settings → API → скопіюйте Project URL та anon key
+   → вставте в SUPABASE_URL та SUPABASE_ANON_KEY вище
+4. Authentication → Policies → consultations:
+   CREATE POLICY "allow_insert" ON consultations
+   FOR INSERT WITH CHECK (true);
+══════════════════════════════════════════════════════════
+-->
 </body>
 </html>
